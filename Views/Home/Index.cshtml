@@ -16,7 +16,7 @@
     <input id="pageall" type="hidden" value="@tongsopage">
 *@
 <!--================Home Banner Area =================-->
-<h3>Welcome: @*Hien thi ten nguoi dung TODO @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")*@  user</h3>
+<h3>Welcome: @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")  user</h3>
 <section class="home_banner_area mb-40">
     <div class="banner_inner d-flex align-items-center">
         <div class="container">

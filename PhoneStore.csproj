@@ -226,6 +226,8 @@
     <Compile Include="Models\Entities\Voucher.cs" />
     <Compile Include="Models\Entities\VoucherForm.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="MyMember.cs" />
+    <Compile Include="MyRoleProvide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UltilPass.cs" />
   </ItemGroup>
@@ -552,6 +554,8 @@
     <Content Include="Views\Shop\List.cshtml" />
     <Content Include="Views\Shop\ListSp.cshtml" />
     <Content Include="Views\Home\MenuPartial.cshtml" />
+    <Content Include="Views\MyUser\Register.cshtml" />
+    <Content Include="Views\MyUser\VeryAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\client\img\blog\latest-post\" />
