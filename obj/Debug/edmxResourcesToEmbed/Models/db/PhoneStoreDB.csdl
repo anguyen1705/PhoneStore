@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhoneStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="logo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="Int32" />
+    <Property Name="activeFlag" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="products" Relationship="Self.productId_BrandId_fk" FromRole="brand" ToRole="product" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activeFlag" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="parentId" Type="Int32" />
+    <NavigationProperty Name="category1" Relationship="Self.category_ibfk_1" FromRole="category" ToRole="category1" />
+    <NavigationProperty Name="category2" Relationship="Self.category_ibfk_1" FromRole="category1" ToRole="category" />
+    <NavigationProperty Name="products" Relationship="Self.product_category_fk" FromRole="category" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryId" Type="Int32" Nullable="false" />
+    <Property Name="brandId" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgMain" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activeFlag" Type="Int32" Nullable="false" />
+    <Property Name="createDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="brand" Relationship="Self.productId_BrandId_fk" FromRole="product" ToRole="brand" />
+    <NavigationProperty Name="category" Relationship="Self.product_category_fk" FromRole="product" ToRole="category" />
+  </EntityType>
+  <Association Name="productId_BrandId_fk">
+    <End Role="brand" Type="Self.brand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="brandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="category_ibfk_1">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="category1" Type="Self.category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="category1">
+        <PropertyRef Name="parentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="product_category_fk">
+    <End Role="category" Type="Self.category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PhoneStoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="brands" EntityType="Self.brand" />
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <AssociationSet Name="productId_BrandId_fk" Association="Self.productId_BrandId_fk">
+      <End Role="brand" EntitySet="brands" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="category_ibfk_1" Association="Self.category_ibfk_1">
+      <End Role="category" EntitySet="categories" />
+      <End Role="category1" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="product_category_fk" Association="Self.product_category_fk">
+      <End Role="category" EntitySet="categories" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

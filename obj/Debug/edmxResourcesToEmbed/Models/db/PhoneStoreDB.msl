@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PhoneStoreModelStoreContainer" CdmEntityContainer="PhoneStoreEntities">
+    <EntitySetMapping Name="brands">
+      <EntityTypeMapping TypeName="PhoneStoreModel.brand">
+        <MappingFragment StoreEntitySet="brand">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="activeFlag" ColumnName="activeFlag" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="PhoneStoreModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="activeFlag" ColumnName="activeFlag" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="PhoneStoreModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="imgMain" ColumnName="imgMain" />
+          <ScalarProperty Name="activeFlag" ColumnName="activeFlag" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
