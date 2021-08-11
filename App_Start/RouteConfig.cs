@@ -12,6 +12,24 @@ namespace PhoneStore
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+             "Shop", "Shop/{action}/{id}",
+             defaults: new { controller = "Shop", action = "List", id = UrlParameter.Optional }
+          
+             );
+            routes.MapRoute(
+
+                   "chitiet", "chitiet/{action}/{id}",
+                   defaults: new { controller = "ProductDetail", action = "ProductDetail", id = UrlParameter.Optional }
+
+            );
+            routes.MapRoute(
+
+
+                  "ShoppingCart", "ShoppingCart/{action}/{id}",
+                  defaults: new { controller = "Cart", action = "Cart", id = UrlParameter.Optional }
+
+           );
 
             routes.MapRoute(
                 name: "Default",
