@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\anguyen206\Desktop\NLU\Net\project\final_proj_1\PhoneStore\Models\db\PhoneStore.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\Models\db\PhoneStore.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -19,7 +19,7 @@ namespace PhoneStore.Controllers
             {
                 List<product> products = productDAO.getListProduct(0);
                 List<product> productsAll = productDAO.getAllListProduct();
-                double pagging = (double)productsAll.Count() / 3;
+                double pagging = (double)productsAll.Count() / 4;
                 double tongsopage = Math.Ceiling(pagging);
 
                 ViewBag.ListPro = products;

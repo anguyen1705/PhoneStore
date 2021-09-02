@@ -24,6 +24,8 @@
 
             @foreach (product pro in products)
             {
+                if (pro.activeFlag == 1)
+                {
                 <div class="col-lg-3 col-md-6">
                     <div class="single-product">
                         <div class="product-img">
@@ -31,13 +33,14 @@
 
 
                             <div class="p_icon">
-                                <a href="@Url.Action("ProductDetail","ProductDetail",new {id = pro.id })">
+                                <a href="@Url.Action("ProductDetail", "ProductDetail", new { id = pro.id })">
                                     <i class="ti-eye"></i>
                                 </a>
                                 <a href="#">
                                     <i class="ti-heart"></i>
                                 </a>
-                                <a href="#">
+                                <a href="#" onclick="addToCart(@pro.id)">
+                                    @Html.Hidden("MaSP", pro.id)
                                     <i class="ti-shopping-cart"></i>
                                 </a>
                             </div>
@@ -53,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-
+                }
             }
 
 
@@ -156,6 +159,8 @@
         })
 
     })
+
+    
 
 </script>
 

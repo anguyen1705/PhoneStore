@@ -128,14 +128,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminProductDetailController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyUserController.cs" />
+    <Compile Include="Controllers\Rest\RestCartController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ProductDetailDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +226,7 @@
     <Compile Include="Models\Entities\Cart.cs" />
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\Color.cs" />
+    <Compile Include="Models\Entities\ItemCart.cs" />
     <Compile Include="Models\Entities\Order.cs" />
     <Compile Include="Models\Entities\OrderDetail.cs" />
     <Compile Include="Models\Entities\Product.cs" />
@@ -1699,6 +1705,12 @@
     <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProductDetail\productDetailList.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\addBrand.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1730,11 +1742,13 @@
     <Content Include="Views\Home\MenuPartial.cshtml" />
     <Content Include="Views\MyUser\Register.cshtml" />
     <Content Include="Views\MyUser\VeryAccount.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\admin\ckfinder\upload\" />
     <Folder Include="Content\client\img\blog\latest-post\" />
+    <Folder Include="Views\RestCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

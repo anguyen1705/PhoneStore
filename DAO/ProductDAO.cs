@@ -32,7 +32,7 @@ namespace PhoneStore.DAO
         public List<product> getListProduct(int begin)
         {
 
-            String sql = "select * from (select ROW_NUMBER() OVER(ORDER BY(select 0)) AS RowNumber, * from product) a where a.RowNumber between "+begin +" and "+ 3;
+            String sql = "select * from (select ROW_NUMBER() OVER(ORDER BY(select 0)) AS RowNumber, * from product) a where a.RowNumber between "+begin +" and "+ 4;
 
             List<product> products = db.products.SqlQuery(sql).ToList<product>();
 

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7c3ef8f7a574e598c86150ae1bb013f" Name="Diagram1">
+      <Diagram DiagramId="e7c3ef8f7a574e598c86150ae1bb013f" Name="Diagram1" ZoomLevel="95">
         <EntityTypeShape EntityType="PhoneStoreModel.auth" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PhoneStoreModel.brand" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PhoneStoreModel.category" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />

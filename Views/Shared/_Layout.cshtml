@@ -214,10 +214,14 @@
                                                     <span>@(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</span>
                                                     <a class="icons" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-in"></i></a>
 
-                                                    <a href="@Url.Action("Cart")" class="icons">
+                                                    <a href="@Url.Action("Cart","Cart")" class="icons">
                                                         <i class="ti-shopping-cart"></i>
 
                                                     </a>
+                                                    if (HttpContext.Current.Session["numCartItem"] != null)
+                                                    {
+                                                        <span>@HttpContext.Current.Session["numCartItem"].ToString()</span>
+                                                    }
 
                                                     @* @Html.ActionLink("<i class='ti-shopping-cart'></i>", "Cart", "Home", new { @class = "icons" })*@
 
@@ -244,11 +248,16 @@
 
 
 
-                                                <a href="@Url.Action("Cart","MyUser")" class="icons">
+                                                <a href="@Url.Action("Cart","Cart")" class="icons">
                                                     <i class="ti-shopping-cart"></i>
 
                                                 </a>
 
+
+                                                if (HttpContext.Current.Session["numCartItem"] != null)
+                                                {
+                                                    <span>@HttpContext.Current.Session["numCartItem"].ToString()</span>
+                                                }
                                                 @* @Html.ActionLink("<i class='ti-shopping-cart'></i>", "Cart", "Home", new { @class = "icons" })*@
 
 
@@ -469,6 +478,43 @@
                 });
             }
         }
+
+        
+		
+		function addToCart(MaSP) {
+        var idPD = MaSP;
+        console.log("add to cart" + idPD);
+
+            $.ajax({
+                type: "GET",
+                url: "https://localhost:44327/RestCart/addToCart",
+
+                data: {
+                    idProductDetail: idPD
+                },
+                success: function (res) {
+                    console.log(res);
+                    if (res) {
+                        if (res.Message == "SUCCESS") {
+
+                            @*window.location = "https://localhost:44306/ShoppingCart";*@
+							console.log("true");
+                        }
+                        else {
+                            console.log("false");
+
+
+                        }
+                    }
+
+
+
+                }
+            });
+
+
+
+    };
     </script>
     <!--================ End footer Area  =================-->
     <!-- Optional JavaScript -->

@@ -26,7 +26,7 @@ namespace PhoneStore
             routes.MapRoute(
 
 
-                  "ShoppingCart", "ShoppingCart/{action}/{id}",
+                  "Cart", "Cart/{action}/{id}",
                   defaults: new { controller = "Cart", action = "Cart", id = UrlParameter.Optional }
 
            );

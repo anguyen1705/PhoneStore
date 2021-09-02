@@ -430,14 +430,14 @@
             var obj = {};
 
 
-            var name='';
-            var value='';
+            var name = '';
+            var value = '';
 
             if (document.getElementById("nameSpec_" + i)) {
-                 name = document.getElementById("nameSpec_" + i).value || '';
+                name = document.getElementById("nameSpec_" + i).value || '';
             }
             if (document.getElementById("valueSpec_" + i)) {
-                 value = document.getElementById("valueSpec_" + i).value || '';
+                value = document.getElementById("valueSpec_" + i).value || '';
             }
 
             console.log(name);
@@ -454,7 +454,7 @@
         html += "<tr id=\"tr_"
 
             + tr.length
-            +"\"> "
+            + "\"> "
 
 
             + "<td><input type=\"text\" class=\"form-control\" "
@@ -472,8 +472,8 @@
             + tr.length + "\" name=\"value_"
             + tr.length + "\" required=\"required\" placeholder=\"Nhập giá trị\"></td>"
             + " <td><button class=\"btn btn-rotate\" onclick=\"deleteTr("
-            + tr.length +")"
-            +"\">-</button></td>"
+            + tr.length + ")"
+            + "\">-</button></td>"
             + "</tr>";
         thread_addSpec.innerHTML = html;
 
