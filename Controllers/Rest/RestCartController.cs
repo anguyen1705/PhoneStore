@@ -135,7 +135,7 @@ namespace PhoneStore.Controllers.Rest
                     Session["numCartItem"] = carts.Count;
                 }
 
-                
+
                 string message = "SUCCESS";
                 return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
             }
@@ -148,72 +148,72 @@ namespace PhoneStore.Controllers.Rest
         }
 
 
-            public JsonResult updateCart()
+        public JsonResult updateCart()
+        {
+            try
             {
-                try
+                int productDetailId = int.Parse(Request.QueryString["idProductDetail"]);
+                int quantity = int.Parse(Request.QueryString["quantity"]);
+                int totalPrice = int.Parse(Request.QueryString["totalPrice"]);
+                if (Session["cart"] != null)
                 {
-                    int productDetailId = int.Parse(Request.QueryString["idProductDetail"]);
-                    int quantity = int.Parse(Request.QueryString["quantity"]);
-                    int totalPrice = int.Parse(Request.QueryString["totalPrice"]);
-                    if (Session["cart"] != null)
+                    ProductDetail productDetail = this.productDetailDAO.findProductDetailById(productDetailId);
+                    List<Cart> carts = Session["cart"] as List<Cart>;
+                    int index = ktTrungSP(productDetail.id);
+                    if (index != -1)
                     {
-                        ProductDetail productDetail = this.productDetailDAO.findProductDetailById(productDetailId);
-                        List<Cart> carts = Session["cart"] as List<Cart>;
-                        int index = ktTrungSP(productDetail.id);
-                        if (index != -1)
-                        {
-                            carts[index].Quantity = quantity;
-                            carts[index].TotalPrice = totalPrice;
-                        }
+                        carts[index].Quantity = quantity;
+                        carts[index].TotalPrice = totalPrice;
                     }
-                    string message = "SUCCESS";
-                    return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
                 }
-                catch (Exception exc)
-                {
-                    string message = "FAIL";
-                    return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
-                }
+                string message = "SUCCESS";
+                return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
             }
-
-
-            public JsonResult deleteItemInCart()
+            catch (Exception exc)
             {
-                string message = "";
-                try
+                string message = "FAIL";
+                return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public JsonResult deleteItemInCart()
+        {
+            string message = "";
+            try
+            {
+                int productDetailId = int.Parse(Request.QueryString["idPD"]);
+
+                if (Session["cart"] != null)
                 {
-                    int productDetailId = int.Parse(Request.QueryString["idPD"]);
-
-                    if (Session["cart"] != null)
+                    ProductDetail productDetail = this.productDetailDAO.findProductDetailById(productDetailId);
+                    List<Cart> carts = Session["cart"] as List<Cart>;
+                    int index = ktTrungSP(productDetail.id);
+                    if (index != -1)
                     {
-                        ProductDetail productDetail = this.productDetailDAO.findProductDetailById(productDetailId);
-                        List<Cart> carts = Session["cart"] as List<Cart>;
-                        int index = ktTrungSP(productDetail.id);
-                        if (index != -1)
-                        {
-                            carts.RemoveAt(index);
-                            message = "SUCCESS";
+                        carts.RemoveAt(index);
+                        message = "SUCCESS";
 
-                        }
-
-                        if (carts.Count == 0 || carts == null)
-                        {
-                            message = "EMPTY";
-
-                        }
                     }
-                    else
+
+                    if (carts.Count == 0 || carts == null)
                     {
                         message = "EMPTY";
-                    }
-                    return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
 
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    message = "FAIL";
-                    return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
+                    message = "EMPTY";
                 }
+                return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                message = "FAIL";
+                return Json(new { Message = message }, JsonRequestBehavior.AllowGet);
             }
         }
     }
+}
