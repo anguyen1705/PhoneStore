@@ -226,7 +226,6 @@
     <Compile Include="Models\Entities\Cart.cs" />
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\Color.cs" />
-    <Compile Include="Models\Entities\ItemCart.cs" />
     <Compile Include="Models\Entities\Order.cs" />
     <Compile Include="Models\Entities\OrderDetail.cs" />
     <Compile Include="Models\Entities\Product.cs" />
