@@ -18,6 +18,8 @@ namespace PhoneStore.Models.db
         public PhoneStoreEntities()
             : base("name=PhoneStoreEntities")
         {
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = true;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

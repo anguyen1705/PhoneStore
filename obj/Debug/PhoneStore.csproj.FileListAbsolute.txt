@@ -155,8 +155,8 @@ C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\bin\System.
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\bin\Newtonsoft.Json.xml
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\bin\Antlr3.Runtime.pdb
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.csprojAssemblyReference.cache
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.csproj.CoreCompileInputs.cache
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.csproj.CopyComplete
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.dll
 C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.pdb
+C:\Users\anguyen206\Desktop\NLU\PhoneStore\PhoneStore_anh\PhoneStore\obj\Debug\PhoneStore.csprojAssemblyReference.cache
