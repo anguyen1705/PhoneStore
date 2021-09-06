@@ -19,7 +19,13 @@ namespace PhoneStore.Models.db
             this.productdetails = new HashSet<productdetail>();
             this.specdetails = new HashSet<specdetail>();
         }
-    
+
+        private String gotValue;
+        private decimal gotPriceMin;
+
+        public string GotValue { get => gotValue; set => gotValue = value; }
+        public decimal GotPriceMin { get => gotPriceMin; set => gotPriceMin = value; }
+
         public int id { get; set; }
         public int activeFlag { get; set; }
         public System.DateTime createDate { get; set; }
@@ -27,5 +33,23 @@ namespace PhoneStore.Models.db
     
         public virtual ICollection<productdetail> productdetails { get; set; }
         public virtual ICollection<specdetail> specdetails { get; set; }
+        public void getValueByName(String name)
+        {
+            ICollection<specdetail> list = this.specdetails;
+            foreach (specdetail sp in list)
+            {
+                if (sp.name.Equals(name))
+                {
+                    this.GotValue = sp.value;
+                }
+            }
+        }
+        public int CompareTo(spec that)
+        {
+            if (that == null) return 1;
+            if (int.Parse(this.GotValue) > int.Parse(that.GotValue)) return 1;
+            if (int.Parse(this.GotValue) < int.Parse(that.GotValue)) return -1;
+            return 0;
+        }
     }
 }

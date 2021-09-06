@@ -73,14 +73,14 @@
                     if (i == 1)
                     {
 
-                        <li class="page-item"><a class="page-link active " href="#">@i</a></li>
+                        <li class="page-item"><a class="page-link active " href="@Url.Action("List", "Shop", new { pageId = 0 })">@i</a></li>
 
 
                     }
                     else
                     {
 
-                        <li class="page-item"><a class="page-link  " href="#">@i</a></li>
+                        <li class="page-item"><a class="page-link  " href="@Url.Action("List", "Shop", new { pageId = i })">@i</a></li>
 
 
                     }

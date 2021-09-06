@@ -13,13 +13,18 @@ namespace PhoneStore.Controllers
     {
         // GET: Shop
         private ProductDAO productDAO = new ProductDAO();
-        public ActionResult List()
+        public ActionResult List(int pageId)
         {
             using (PhoneStoreEntities db = new PhoneStoreEntities())
             {
-                List<product> products = productDAO.getListProduct(0);
+                int start = 0;
+                if (pageId != 0)
+                {
+                    start = (pageId - 1) * 3 + 1;
+                }
+                List<product> products = productDAO.getListProduct(start);
                 List<product> productsAll = productDAO.getAllListProduct();
-                double pagging = (double)productsAll.Count() / 4;
+                double pagging = (double)productsAll.Count() / 3;
                 double tongsopage = Math.Ceiling(pagging);
 
                 ViewBag.ListPro = products;
@@ -28,6 +33,12 @@ namespace PhoneStore.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult ListByPage(int pageId)
+        {
+            
+            return RedirectToAction("List", "Shop");
         }
 
         public ActionResult ListSp()

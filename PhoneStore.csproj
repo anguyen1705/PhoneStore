@@ -135,7 +135,9 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyUserController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\Rest\RestCartController.cs" />
+    <Compile Include="Controllers\Rest\RestProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\ColorDAO.cs" />
@@ -1742,12 +1744,15 @@
     <Content Include="Views\MyUser\Register.cshtml" />
     <Content Include="Views\MyUser\VeryAccount.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\ProductDetail\ProductDetail.cshtml" />
+    <Content Include="Views\ProductDetail\AccessoryDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\admin\ckfinder\upload\" />
     <Folder Include="Content\client\img\blog\latest-post\" />
     <Folder Include="Views\RestCart\" />
+    <Folder Include="Views\RestProduct\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
