@@ -156,7 +156,7 @@
                                         <a class="nav-link" href="@Url.Action("Index","Home")">Trang chủ</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="@Url.Action("List","Shop")">Shop</a>
+                                        <a class="nav-link" href="@Url.Action("List","Shop",new {pageId = 0 })">Shop</a>
 
                                     </li>
                                     @*<li class="nav-item active submenu dropdown">
@@ -423,7 +423,7 @@
                 $(".fs-sresult").show();
                 $.ajax({
                     type: "GET",
-                    url: "https://localhost:44306/RestProduct/searchProduct",
+                    url: "https://localhost:44327/RestProduct/searchProduct",
                     data: {
                         keys: keys
                     },
@@ -442,10 +442,10 @@
 
                             for (var i = 0; i < res.length; i++) {
 
-                                $(".fs-sresult").find("ul").append("<li @*style="+'background'+":"+ 'lightgoldenrodyellow'+"*@ ><a href=\"https://localhost:44306/chitiet/ProductDetail/" + res[i].id + "\">" +
+                                $(".fs-sresult").find("ul").append("<li @*style="+'background'+":"+ 'lightgoldenrodyellow'+"*@ ><a href=\"https://localhost:44327/chitiet/ProductDetail/" + res[i].id + "\">" +
                                     "                                            <p>" +
-                                    "                                                <img height="+40+" width="+40+"  src=\"https://localhost:44306/Content/client/img/product/" + res[i].imgMain + " \"" +
-                                    "                                                     alt=\"https://localhost:44306/Content/client/img/product/" + res[i].imgMain + " \">" +
+                                    "                                                <img height="+40+" width="+40+"  src=\"https://localhost:44327/Content/client/img/product/" + res[i].imgMain + " \"" +
+                                    "                                                     alt=\"https://localhost:44327/Content/client/img/product/" + res[i].imgMain + " \">" +
                                     "                                            </p>" +
                                     "                                            <div>" +
                                     "                                               <h3>" + res[i].name + "</h3>" +

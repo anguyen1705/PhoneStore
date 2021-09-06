@@ -37,5 +37,6 @@ namespace PhoneStore.Models.db
         public virtual product product { get; set; }
         public virtual spec spec { get; set; }
         public virtual ICollection<storage> storages { get; set; }
+        public int status;
     }
 }
