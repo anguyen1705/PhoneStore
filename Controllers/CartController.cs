@@ -15,12 +15,12 @@ namespace PhoneStore.Controllers
         {
             List<Cart> carts = Session["cart"] as List<Cart>;
 
-            /*if (carts == null)
+            if (carts == null)
             {
                 carts = new List<Cart>();
                 Session["cart"] = carts;
 
-            }*/
+            }
             List<voucher> vouchers = new List<voucher>();
             List<String> gotVouchers = new List<String>();
             List<product> products = new List<product>();

@@ -32,21 +32,21 @@ namespace PhoneStore.DAO
         public List<product> getListProduct(int begin)
         {
 
-            String sql = "select * from (select ROW_NUMBER() OVER(ORDER BY(select 0)) AS RowNumber, * from product) a where a.RowNumber between "+begin +" and "+ (begin + 3);
+            String sql = "select * from (select ROW_NUMBER() OVER(ORDER BY(select 0)) AS RowNumber, * from product where activeFlag=1) a where a.RowNumber between "+begin +" and "+ (begin + 3);
 
             List<product> products = db.products.SqlQuery(sql).ToList<product>();
 
-            List<product> rsProducts = new List<product>();
+            /*List<product> rsProducts = new List<product>();
             foreach(product p in products)
             {
                 if (p.activeFlag == 1)
                 {
                     rsProducts.Add(p);
                 }
-            }
+            }*/
 
 
-            return rsProducts;
+            return products;
 
         }
 
